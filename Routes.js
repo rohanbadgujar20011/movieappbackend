@@ -37,7 +37,6 @@ router.get("/getall",async (req,res)=>{
     if(searchmovie){
         movieobject.Title={$regex:searchmovie,$options:"i"}
     }
-    console.log(movieobject);
     try{
         const showall=await Movie.find(movieobject);
         res.status(201).json(showall); 
