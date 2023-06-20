@@ -16,7 +16,8 @@ router.post("/movieadd", upload.single("poster"), async (req, res, next) => {
       };
   
       if (req.file) {
-        movieData.Poster = `${process.env.PORT}/${req.file.path}`;
+        console.log(req.body);
+        movieData.Poster = req.file.path;
       }
     //   await Movie.deleteMany();
       const MovieAdd = await Movie.create(movieData);
